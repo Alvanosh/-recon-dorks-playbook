@@ -1,4 +1,6 @@
 # 🔍 Google Dorking Playbook
+![logo](logo.png)
+
 
 A practical and ethical playbook for using Google Dorks in:
 - Security reconnaissance

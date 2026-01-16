@@ -79,8 +79,12 @@ You can paste this directly into `README.md` or a separate `google-dorks-table.m
 > Use them **only on assets you own or have explicit permission to test**,
 > such as bug bounty program scopes.
 ```
+
 ---
+## 📌 EXAMPLES
+```md
+site:example.com
+```
 
-
-
+---
 

@@ -96,4 +96,4 @@ site:tesla.com filetype:pdf
 
 site:linkedin.com inurl:"signup"
 ```
-![intitle](intitle.png)
+![inurl](inurl.png)

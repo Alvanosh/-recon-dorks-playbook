@@ -86,13 +86,14 @@ You can paste this directly into `README.md` or a separate `google-dorks-table.m
 site:example.com
 ```
 ![site](site.png)
-```md
 
-site:linkedin.com inurl:"signup"
-```
-![intitle](intitle.png)
 ```md
 site:tesla.com filetype:pdf
 ```
 ![filetype](filetype.png)
 
+```md
+
+site:linkedin.com inurl:"signup"
+```
+![intitle](intitle.png)

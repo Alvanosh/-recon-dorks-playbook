@@ -24,52 +24,37 @@ to discover exposed information indexed by search engines.
 
 You can paste this directly into `README.md` or a separate `google-dorks-table.md`.
 
-```md
-| Category | Google Dork | Description |
-|--------|------------|-------------|
-| Basic | site:example.com | Search within a specific website |
-| Basic | intitle:"index of" | Find directory listings |
-| Basic | inurl:admin | URLs containing "admin" |
-| Basic | intext:"confidential" | Pages containing sensitive text |
-| File Discovery | filetype:pdf | Find PDF files |
-| File Discovery | filetype:xls | Find Excel files |
-| File Discovery | filetype:doc OR filetype:docx | Find Word documents |
-| File Discovery | filetype:sql | Find database dump files |
-| File Discovery | filetype:env | Find environment config files |
-| Credentials | intext:"username" intext:"password" | Possible credential exposure |
-| Credentials | intext:"DB_PASSWORD" | Database passwords in plain text |
-| Credentials | intext:"API_KEY" | API key exposure |
-| Login Pages | inurl:login | Login pages |
-| Login Pages | inurl:signin | Sign-in portals |
-| Login Pages | intitle:"Admin Login" | Admin login panels |
-| Admin Panels | inurl:/admin/login | Admin login endpoints |
-| Admin Panels | inurl:/dashboard | Admin dashboards |
-| Config Files | filetype:xml | XML configuration files |
-| Config Files | filetype:yaml OR filetype:yml | YAML configuration files |
-| Config Files | filetype:conf | Server config files |
-| Cloud Storage | site:s3.amazonaws.com | Public AWS S3 buckets |
-| Cloud Storage | site:blob.core.windows.net | Azure blob storage |
-| Cloud Storage | site:storage.googleapis.com | Google Cloud storage |
-| Git Exposure | intitle:"index of" ".git" | Exposed Git repositories |
-| Git Exposure | filetype:git | Git-related files |
-| Logs | filetype:log | Server log files |
-| Logs | intext:"error" filetype:log | Error logs |
-| Backup Files | filetype:bak | Backup files |
-| Backup Files | filetype:old | Old backup files |
-| Backup Files | filetype:zip | Compressed backups |
-| Databases | filetype:db | Database files |
-| Databases | filetype:sqlite | SQLite databases |
-| Cameras | inurl:view/index.shtml | Live camera feeds |
-| Cameras | intitle:"Live View / - AXIS" | Axis camera feeds |
-| Emails | intext:"@gmail.com" site:example.com | Email harvesting |
-| Emails | intext:"@yahoo.com" site:example.com | Public email exposure |
-| Bug Bounty | site:example.com inurl:api | API endpoints |
-| Bug Bounty | inurl:/v1 OR inurl:/v2 | API versioning |
-| Bug Bounty | inurl:swagger | Swagger API docs |
-| Bug Bounty | intitle:"Swagger UI" | Public API documentation |
-```
 
----
+
+| #  | Category          | Google Dork                             | What It Actually Finds                                  |
+| -- | ----------------- | --------------------------------------- | ------------------------------------------------------- |
+| 1  | Scope Control     | `site:example.com`                      | Restricts search to the target domain (ABSOLUTE BASICS) |
+| 2  | Directory Listing | `intitle:"index of"`                    | Open directory listings                                 |
+| 3  | Directory Listing | `intitle:"index of" "parent directory"` | Misconfigured servers                                   |
+| 4  | Admin Panels      | `inurl:admin`                           | Admin panels & dashboards                               |
+| 5  | Admin Panels      | `intitle:"Admin Login"`                 | Explicit admin login pages                              |
+| 6  | Login Pages       | `inurl:login`                           | User login endpoints                                    |
+| 7  | Login Pages       | `inurl:signin`                          | Alternative auth portals                                |
+| 8  | Config Files      | `inurl:config`                          | Configuration files                                     |
+| 9  | Config Files      | `filetype:xml site:example.com`         | XML configs, SSO, APIs                                  |
+| 10 | Secrets           | `intext="DB_PASSWORD"`                  | Hardcoded database creds                                |
+| 11 | Secrets           | `intext="API_KEY"`                      | Exposed API keys                                        |
+| 12 | Secrets           | `intext="password="`                    | Plaintext password leaks                                |
+| 13 | Git Exposure      | `inurl:.git/config`                     | Exposed Git repositories                                |
+| 14 | Git Exposure      | `intitle:"index of" ".git"`             | Full Git directory leaks                                |
+| 15 | Backups           | `filetype:bak OR filetype:old`          | Backup files                                            |
+| 16 | Backups           | `filetype:zip site:example.com`         | Zipped backups                                          |
+| 17 | Logs              | `filetype:log site:example.com`         | Server & error logs                                     |
+| 18 | Errors            | `intext:"Fatal error"`                  | PHP / app crashes                                       |
+| 19 | Errors            | `intext:"stack trace"`                  | Debug traces                                            |
+| 20 | APIs              | `inurl:api site:example.com`            | API endpoints                                           |
+| 21 | APIs              | `inurl:swagger OR intitle:"Swagger UI"` | Public API docs                                         |
+| 22 | Cloud             | `site:s3.amazonaws.com example`         | Public AWS S3 buckets                                   |
+| 23 | Cloud             | `site:blob.core.windows.net example`    | Azure blob storage                                      |
+| 24 | Cloud             | `site:storage.googleapis.com example`   | Google Cloud storage                                    |
+| 25 | Firebase          | `site:firebaseio.com`                   | Open Firebase databases                                 |
+
+
 
 ## ⚠️ VERY IMPORTANT (don’t skip this)
 

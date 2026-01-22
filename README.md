@@ -92,8 +92,13 @@ site:tesla.com filetype:pdf
 ```
 ![filetype](filetype.png)
 
-```md
 
+```md
 site:linkedin.com inurl:"signup"
 ```
 ![inurl](inurl.png)
+
+
+```md
+site:tryhackme.com intitle:admin
+```

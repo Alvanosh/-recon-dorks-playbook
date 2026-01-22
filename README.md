@@ -61,8 +61,6 @@ You can paste this directly into `README.md` or a separate `google-dorks-table.m
 
 ```md
 > ⚠️ These Google dorks are provided for **educational purposes only**.
-> Use them **only on assets you own or have explicit permission to test**,
-> such as bug bounty program scopes.
 ```
 
 ---
